@@ -316,7 +316,12 @@
     "statusRedirect": "Đã chuyển hướng",
     "export": "Xuất nhật ký",
     "rewritten": "Đã viết lại",
-    "logDetails": "Chi tiết nhật ký"
+    "logDetails": "Chi tiết nhật ký",
+    "searchCountry": "Tìm kiếm quốc gia...",
+    "noMatchingCountries": "Không tìm thấy quốc gia phù hợp",
+    "searchIsp": "Tìm kiếm nhà mạng/ISP...",
+    "noMatchingIsps": "Không tìm thấy ISP phù hợp",
+    "loadingIsps": "Đang tải danh sách ISP..."
   },
   "filtering": {
     "title": "Danh sách chặn bên ngoài",

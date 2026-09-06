@@ -316,7 +316,12 @@
     "statusRedirect": "리다이렉트됨",
     "export": "로그 내보내기",
     "rewritten": "재작성됨",
-    "logDetails": "로그 상세 정보"
+    "logDetails": "로그 상세 정보",
+    "searchCountry": "국가 검색...",
+    "noMatchingCountries": "일치하는 국가를 찾을 수 없습니다",
+    "searchIsp": "통신사/ISP 검색...",
+    "noMatchingIsps": "일치하는 통신사를 찾을 수 없습니다",
+    "loadingIsps": "통신사 목록 불러오는 중..."
   },
   "filtering": {
     "title": "외부 차단 리스트",

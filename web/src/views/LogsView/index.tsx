@@ -30,10 +30,8 @@ export const LogsView: React.FC<LogsViewProps> = ({ profileId, onQuickAction, to
     accessPoints,
     destCountryFilter,
     setDestCountryFilter,
-    countries,
     ispFilter,
     setIspFilter,
-    isps,
     searchQuery,
     setSearchQuery,
 
@@ -67,6 +65,7 @@ export const LogsView: React.FC<LogsViewProps> = ({ profileId, onQuickAction, to
   return (
     <div className="h-full flex flex-col overflow-hidden bg-gray-50/30 dark:bg-gray-950/10 max-w-7xl mx-auto w-full pt-14">
       <LogsHeader
+        profileId={profileId}
         range={range}
         setRange={setRange}
         customRange={customRange}
@@ -83,10 +82,8 @@ export const LogsView: React.FC<LogsViewProps> = ({ profileId, onQuickAction, to
         accessPoints={accessPoints}
         destCountryFilter={destCountryFilter}
         setDestCountryFilter={setDestCountryFilter}
-        countries={countries}
         ispFilter={ispFilter}
         setIspFilter={setIspFilter}
-        isps={isps}
         searchQuery={searchQuery}
         setSearchQuery={setSearchQuery}
         stats={stats}

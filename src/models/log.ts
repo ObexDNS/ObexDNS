@@ -145,13 +145,23 @@ export class LogModel {
     return result.success;
   }
 
-  async cleanup(profileId: string, olderThanTimestamp: number): Promise<number> {
-    const result = await this.db.prepare(
-      "DELETE FROM logs WHERE profile_id = ? AND timestamp < ?"
-    )
-      .bind(profileId, olderThanTimestamp)
-      .run();
-    return result.meta.changes || 0;
+  async cleanup(profileId: string, olderThanTimestamp: number, maxRows = 20000): Promise<number> {
+    let totalDeleted = 0;
+    const batchSize = 10000;
+    while (totalDeleted < maxRows) {
+      const currentBatch = Math.min(batchSize, maxRows - totalDeleted);
+      const result = await this.db.prepare(
+        "DELETE FROM logs WHERE id IN (SELECT id FROM logs WHERE profile_id = ? AND timestamp < ? LIMIT ?)"
+      )
+        .bind(profileId, olderThanTimestamp, currentBatch)
+        .run();
+      const count = result.meta.changes || 0;
+      totalDeleted += count;
+      if (count < currentBatch) {
+        break;
+      }
+    }
+    return totalDeleted;
   }
 
   /**
@@ -161,6 +171,8 @@ export class LogModel {
    *   1. Time-based: deletes logs older than min(user_setting, MAX_LOG_RETENTION_DAYS).
    *      The global cap prevents users from setting arbitrarily long retention periods
    *      (e.g. 360 days) that would cause D1 to overflow.
+   *   2. Batch limiting: deletes at most 10,000 rows per profile per run to avoid
+   *      exhausting daily D1 write quotas or causing CPU execution timeouts.
    *
    * @param maxRetentionDays - Hard cap on log retention days (default 90).
    */
@@ -190,9 +202,10 @@ export class LogModel {
         const effectiveDays = Math.min(days, maxRetentionDays);
         const threshold = Math.floor(Date.now() / 1000 - (effectiveDays * 24 * 3600));
 
+        // Delete up to 10,000 rows per profile per hourly cron run to prevent write spikes
         statements.push(
           this.db.prepare(
-            "DELETE FROM logs WHERE profile_id = ? AND timestamp < ?"
+            "DELETE FROM logs WHERE id IN (SELECT id FROM logs WHERE profile_id = ? AND timestamp < ? LIMIT 10000)"
           ).bind(profile.id, threshold)
         );
       }
