@@ -316,7 +316,12 @@
     "statusRedirect": "リダイレクト済み",
     "export": "ログをエクスポート",
     "rewritten": "書き換え済み",
-    "logDetails": "ログの詳細"
+    "logDetails": "ログの詳細",
+    "searchCountry": "国を検索...",
+    "noMatchingCountries": "一致する国が見つかりません",
+    "searchIsp": "プロバイダを検索...",
+    "noMatchingIsps": "一致するプロバイダが見つかりません",
+    "loadingIsps": "プロバイダを読み込み中..."
   },
   "filtering": {
     "title": "外部ブロックリスト",

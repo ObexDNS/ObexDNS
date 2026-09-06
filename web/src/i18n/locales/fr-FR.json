@@ -316,7 +316,12 @@
     "statusRedirect": "Redirigé",
     "export": "Exporter les journaux",
     "rewritten": "Réécrit",
-    "logDetails": "Détails du journal"
+    "logDetails": "Détails du journal",
+    "searchCountry": "Rechercher un pays...",
+    "noMatchingCountries": "Aucun pays correspondant trouvé",
+    "searchIsp": "Rechercher un FAI...",
+    "noMatchingIsps": "Aucun FAI correspondant trouvé",
+    "loadingIsps": "Chargement des FAI..."
   },
   "filtering": {
     "title": "Listes de blocage externes",

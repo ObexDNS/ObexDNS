@@ -316,7 +316,12 @@
     "statusRedirect": "Redirigido",
     "export": "Exportar registros",
     "rewritten": "Reescrito",
-    "logDetails": "Detalles del registro"
+    "logDetails": "Detalles del registro",
+    "searchCountry": "Buscar países...",
+    "noMatchingCountries": "No se encontraron países coincidentes",
+    "searchIsp": "Buscar ISP...",
+    "noMatchingIsps": "No se encontraron ISPs coincidentes",
+    "loadingIsps": "Cargando ISPs..."
   },
   "filtering": {
     "title": "Listas de bloqueo externas",

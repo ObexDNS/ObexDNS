@@ -317,7 +317,12 @@
     "statusRedirect": "重新導向",
     "export": "匯出日誌",
     "rewritten": "已重寫",
-    "logDetails": "查詢詳情"
+    "logDetails": "查詢詳情",
+    "searchCountry": "搜尋國家...",
+    "noMatchingCountries": "未找到相符國家",
+    "searchIsp": "搜尋電信業者...",
+    "noMatchingIsps": "未找到相符電信業者",
+    "loadingIsps": "正在載入電信業者..."
   },
   "filtering": {
     "title": "外部攔截清單",

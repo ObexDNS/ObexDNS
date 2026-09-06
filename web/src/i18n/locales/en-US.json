@@ -317,7 +317,12 @@
     "statusRedirect": "REDIRECT",
     "export": "Export Logs",
     "rewritten": "Rewritten",
-    "logDetails": "Log Details"
+    "logDetails": "Log Details",
+    "searchCountry": "Search country...",
+    "noMatchingCountries": "No matching countries found",
+    "searchIsp": "Search ISP...",
+    "noMatchingIsps": "No matching ISPs found",
+    "loadingIsps": "Loading ISPs..."
   },
   "filtering": {
     "title": "External Filters",

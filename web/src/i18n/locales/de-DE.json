@@ -316,7 +316,12 @@
     "statusRedirect": "Umgeleitet",
     "export": "Protokolle exportieren",
     "rewritten": "Umgeschrieben",
-    "logDetails": "Protokolldetails"
+    "logDetails": "Protokolldetails",
+    "searchCountry": "Länder suchen...",
+    "noMatchingCountries": "Keine passenden Länder gefunden",
+    "searchIsp": "ISP suchen...",
+    "noMatchingIsps": "Keine passenden ISPs gefunden",
+    "loadingIsps": "ISPs werden geladen..."
   },
   "filtering": {
     "title": "Externe Blockierlisten",

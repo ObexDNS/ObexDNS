@@ -10,6 +10,7 @@ import { DestCountryFilter } from "./DestCountryFilter";
 import { IspFilter } from "./IspFilter";
 
 export interface LogsHeaderProps {
+  profileId: string;
   range: TimeRange;
   setRange: (r: TimeRange) => void;
   customRange: { start: string; end: string };
@@ -26,10 +27,8 @@ export interface LogsHeaderProps {
   accessPoints: AccessPoint[];
   destCountryFilter: string | null;
   setDestCountryFilter: (val: string | null) => void;
-  countries: { country_code: string; country: string }[];
   ispFilter: string | null;
   setIspFilter: (val: string | null) => void;
-  isps: { name: string; count: number }[];
   searchQuery: string;
   setSearchQuery: (val: string) => void;
   stats: { total: number; pass: number; block: number; redirect: number } | null;
@@ -39,6 +38,7 @@ export interface LogsHeaderProps {
 }
 
 export const LogsHeader: React.FC<LogsHeaderProps> = ({
+  profileId,
   range,
   setRange,
   customRange,
@@ -55,10 +55,8 @@ export const LogsHeader: React.FC<LogsHeaderProps> = ({
   accessPoints,
   destCountryFilter,
   setDestCountryFilter,
-  countries,
   ispFilter,
   setIspFilter,
-  isps,
   searchQuery,
   setSearchQuery,
   stats,
@@ -182,22 +180,21 @@ export const LogsHeader: React.FC<LogsHeaderProps> = ({
                 isMobile={isMobile}
               />
             )}
-            {countries.length > 0 && (
-              <DestCountryFilter
-                destCountryFilter={destCountryFilter}
-                setDestCountryFilter={setDestCountryFilter}
-                countries={countries}
-                isMobile={isMobile}
-              />
-            )}
-            {isps.length > 0 && (
-              <IspFilter
-                ispFilter={ispFilter}
-                setIspFilter={setIspFilter}
-                isps={isps}
-                isMobile={isMobile}
-              />
-            )}
+            <DestCountryFilter
+              destCountryFilter={destCountryFilter}
+              setDestCountryFilter={setDestCountryFilter}
+              isMobile={isMobile}
+            />
+            <IspFilter
+              profileId={profileId}
+              range={range}
+              customRange={customRange}
+              destCountryFilter={destCountryFilter}
+              accessPointIdFilter={accessPointIdFilter}
+              ispFilter={ispFilter}
+              setIspFilter={setIspFilter}
+              isMobile={isMobile}
+            />
           </div>
           <div className="flex items-center gap-2 flex-1 md:max-w-md justify-end">
             <div className="flex-1 md:max-w-xs">
